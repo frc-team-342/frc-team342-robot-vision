@@ -1,6 +1,8 @@
 package org.first.team342.vision;
 
 import static com.googlecode.javacv.cpp.opencv_core.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * This class represents a simple black and white image.
@@ -9,6 +11,8 @@ import static com.googlecode.javacv.cpp.opencv_core.*;
  */
 public class BinaryImage extends Image {
     
+    private static final Logger logger = LoggerFactory.getLogger(BinaryImage.class);
+
     /**
      * Constant for the minimum pixel value of the binary image.
      */
@@ -36,6 +40,7 @@ public class BinaryImage extends Image {
      * be turned black and the white pixels will be turned black.
      */
     public void invert() {
+        logger.debug("Inverting image.");
         cvInv(this.image, this.image);
     }
 }

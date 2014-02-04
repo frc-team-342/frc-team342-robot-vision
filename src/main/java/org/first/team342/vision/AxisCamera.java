@@ -29,7 +29,7 @@ public class AxisCamera implements Camera {
     /**
      * Class logger.
      */
-    private static final Logger LOGGER = LoggerFactory.getLogger(AxisCamera.class);
+    private static final Logger logger = LoggerFactory.getLogger(AxisCamera.class);
     /**
      * The frame grabber utilized to access the camera's image.
      */
@@ -63,6 +63,7 @@ public class AxisCamera implements Camera {
      */
     @Override
     public void connect() {
+        logger.debug("Connecting to Axis Camera");
         String connectionString = String.format("http://%s/mjpg/video.mjpg", ipAddress);
         this.frameGrabber = new FFmpegFrameGrabber(connectionString);
         this.frameGrabber.setFrameRate(1.0);
@@ -73,13 +74,14 @@ public class AxisCamera implements Camera {
      */
     @Override
     public synchronized Image getImage() {
+        logger.debug("Getting image from Axis Camera.");
         Image image = null;
 
         try {
             IplImage newImage = this.frameGrabber.grab();
             image = ImageFactory.createImage(newImage);
         } catch (FrameGrabber.Exception ex) {
-            LOGGER.error("Error occured getting image.", ex);
+            logger.error("Error occured getting image.", ex);
         }
 
         return image;
@@ -91,10 +93,11 @@ public class AxisCamera implements Camera {
      * <strong>Note:</strong> This method MUST be called prior to calling {@link #getImage()}.
      */
     public void start() {
+        logger.debug("Starting Axis Camera.");
         try {
             this.frameGrabber.start();
         } catch (FrameGrabber.Exception ex) {
-            LOGGER.error("Error occured starting the camera.", ex);
+            logger.error("Error occured starting the camera.", ex);
         }
     }
 
@@ -103,11 +106,12 @@ public class AxisCamera implements Camera {
      * be able to be captured.
      */
     public void stop() {
+        logger.debug("Stopping Axis Camera.");
         try {
             this.frameGrabber.stop();
             this.frameGrabber.release();
         } catch (FrameGrabber.Exception ex) {
-            LOGGER.error("Error occured stopping the camera.", ex);
+            logger.error("Error occured stopping the camera.", ex);
         }
     }
 }

@@ -2,12 +2,16 @@ package org.first.team342.vision;
 
 import static com.googlecode.javacv.cpp.opencv_core.*;
 import static com.googlecode.javacv.cpp.opencv_imgproc.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  *
  * @author FIRST Team 342
  */
 public class GrayscaleImage extends Image {
+
+    private static final Logger logger = LoggerFactory.getLogger(GrayscaleImage.class);
 
     /**
      * Create a new instance from the given image.
@@ -28,6 +32,7 @@ public class GrayscaleImage extends Image {
      * @return the resulting binary image.
      */
     public BinaryImage getThreshold(int threshold) {
+        logger.debug("Getting Threshold: " + threshold);
         IplImage destination = cvCreateImage(this.image.cvSize(), 8, 1);
         cvThreshold(this.image, destination, threshold, BinaryImage.MAX_BINARY_VALUE, CV_THRESH_BINARY);
         return new BinaryImage(destination);
@@ -43,6 +48,7 @@ public class GrayscaleImage extends Image {
      * @return the resulting binary image.
      */
     public BinaryImage getInvertedThreshold(int threshold) {
+        logger.debug("Getting Inverted Threshold: " + threshold);
         IplImage destination = cvCreateImage(this.image.cvSize(), 8, 1);
         cvThreshold(this.image, destination, threshold, BinaryImage.MAX_BINARY_VALUE, CV_THRESH_BINARY_INV);
         return new BinaryImage(destination);
@@ -59,6 +65,7 @@ public class GrayscaleImage extends Image {
      * @return the resulting binary image.
      */
     public BinaryImage getTruncatedThreshold(int threshold) {
+        logger.debug("Getting Truncated Threshold: " + threshold);
         IplImage destination = cvCreateImage(this.image.cvSize(), 8, 1);
         cvThreshold(this.image, destination, threshold, threshold, CV_THRESH_TRUNC);
         return new BinaryImage(destination);
@@ -74,6 +81,7 @@ public class GrayscaleImage extends Image {
      * @return the resulting binary image.
      */
     public BinaryImage getToZeroThreshold(int threshold) {
+        logger.debug("Getting To Zero Threshold: " + threshold);
         IplImage destination = cvCreateImage(this.image.cvSize(), 8, 1);
         cvThreshold(this.image, destination, threshold, threshold, CV_THRESH_TOZERO);
         return new BinaryImage(destination);
@@ -89,6 +97,7 @@ public class GrayscaleImage extends Image {
      * @return the resulting binary image.
      */
     public BinaryImage getToZeroInvertedThreshold(int threshold) {
+        logger.debug("Getting To Zero Inverted Threshold: " + threshold);
         IplImage destination = cvCreateImage(this.image.cvSize(), 8, 1);
         cvThreshold(this.image, destination, threshold, threshold, CV_THRESH_TOZERO_INV);
         return new BinaryImage(destination);
