@@ -90,6 +90,7 @@ public class AxisCamera implements Camera {
         try {
             IplImage newImage = this.frameGrabber.grab();
             image = ImageFactory.createImage(newImage);
+            newImage.release();
         } catch (FrameGrabber.Exception ex) {
             logger.error("Error occured getting image.", ex);
         }
