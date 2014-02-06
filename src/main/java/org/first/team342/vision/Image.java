@@ -125,4 +125,27 @@ public abstract class Image {
         logger.debug("Converting color to cvScalar.");
         return CV_RGB(color.getRed(), color.getGreen(), color.getBlue());
     }
+
+    /**
+     * Returns the image width.
+     *
+     * @return the image width.
+     */
+    public int getWidth() {
+        return this.image.width();
+    }
+
+    /**
+     * Returns the image height.
+     *
+     * @return the image height.
+     */
+    public int getHeight() {
+        return this.image.height();
+    }
+
+    @Override
+    public Image clone() {
+        return ImageFactory.createImage(this.image.clone());
+    }
 }
