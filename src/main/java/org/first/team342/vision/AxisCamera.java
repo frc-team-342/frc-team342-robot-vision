@@ -3,6 +3,7 @@ package org.first.team342.vision;
 import com.googlecode.javacv.FFmpegFrameGrabber;
 import com.googlecode.javacv.FrameGrabber;
 import static com.googlecode.javacv.cpp.opencv_core.*;
+import static com.googlecode.javacv.cpp.avutil.*;
 import java.net.InetAddress;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,6 +46,7 @@ public class AxisCamera implements Camera {
      * @param ipAddress the IP address of the camera.
      */
     public AxisCamera(String ipAddress) {
+        av_log_set_level(AV_LOG_ERROR);
         this.ipAddress = ipAddress;
     }
 
