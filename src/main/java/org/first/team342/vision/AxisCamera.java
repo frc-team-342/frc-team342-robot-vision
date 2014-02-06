@@ -28,13 +28,13 @@ import org.slf4j.LoggerFactory;
 public class AxisCamera implements Camera {
 
     /**
-     * Class logger.
+     * Axis Camera logger.
      */
     private static final Logger logger = LoggerFactory.getLogger(AxisCamera.class);
     /**
      * The frame grabber utilized to access the camera's image.
      */
-    private FFmpegFrameGrabber frameGrabber;
+    private FrameGrabber frameGrabber;
     /**
      * The IP address of the camera.
      */
