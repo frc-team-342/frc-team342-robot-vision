@@ -73,6 +73,14 @@ public class AxisCamera implements Camera {
      * {@inheritDoc}
      */
     @Override
+    public void disconnect() {
+        logger.info("Disconnect not yet implemented.");
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public synchronized Image getImage() {
         logger.debug("Getting image from Axis Camera.");
         Image image = null;
@@ -92,6 +100,7 @@ public class AxisCamera implements Camera {
      * <br>
      * <strong>Note:</strong> This method MUST be called prior to calling {@link #getImage()}.
      */
+    @Override
     public void start() {
         logger.debug("Starting Axis Camera.");
         try {
@@ -105,6 +114,7 @@ public class AxisCamera implements Camera {
      * Stop the camera.  This method will disable the camera.  Images will no longer
      * be able to be captured.
      */
+    @Override
     public void stop() {
         logger.debug("Stopping Axis Camera.");
         try {
