@@ -68,7 +68,7 @@ public class AxisCamera implements Camera {
         logger.debug("Connecting to Axis Camera");
         String connectionString = String.format("http://%s/mjpg/video.mjpg", ipAddress);
         this.frameGrabber = new FFmpegFrameGrabber(connectionString);
-        this.frameGrabber.setFrameRate(1.0);
+        this.frameGrabber.setFrameRate(DEFAULT_FRAME_RATE);
     }
 
     /**

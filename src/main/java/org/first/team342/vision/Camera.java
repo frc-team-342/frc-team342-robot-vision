@@ -8,6 +8,11 @@ package org.first.team342.vision;
 public interface Camera {
 
     /**
+     * Constant for the default frame rate.
+     */
+    public static final double DEFAULT_FRAME_RATE = 1.0;
+
+    /**
      * Initialize the connection to the camera.
      */
     public abstract void connect();
