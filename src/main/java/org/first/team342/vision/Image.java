@@ -19,7 +19,22 @@ import org.slf4j.LoggerFactory;
  */
 public abstract class Image {
 
+    /**
+     * Class logger.
+     */
     private static final Logger logger = LoggerFactory.getLogger(Image.class);
+    /**
+     * Constant value for the X axis flip mode.
+     */
+    public static final int FLIP_MODE_X_AXIS = 0;
+    /**
+     * Constant value for the Y axis flip mode.
+     */
+    public static final int FLIP_MODE_Y_AXIS = 1;
+    /**
+     * Constant value for the both axis flip mode.
+     */
+    public static final int FLIP_MODE_BOTH = -1;
     /**
      * The core image object.
      */
@@ -113,6 +128,22 @@ public abstract class Image {
         logger.debug("Drawing Rectangle.");
         cvDrawRect(this.image, cvPoint(x, y), cvPoint(x + width, y + height),
                 this.toScalar(color), thickness, 8, 0);
+    }
+
+    /**
+     * Flip the image according to the specified flip mode.
+     *
+     * @param flipMode the flip mode that defines how to flip the image.<br>
+     * <br>
+     * Valid flip modes:<br>
+     * <ul>
+     *   <li>{@link Image#FLIP_MODE_X_AXIS}</li>
+     *   <li>{@link Image#FLIP_MODE_Y_AXIS}</li>
+     *   <li>{@link Image#FLIP_MODE_BOTH}</li>
+     * </ul>
+     */
+    public void flip(int flipMode) {
+        cvFlip(image, image, flipMode);
     }
 
     /**
