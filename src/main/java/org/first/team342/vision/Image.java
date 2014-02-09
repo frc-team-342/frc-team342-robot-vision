@@ -70,67 +70,6 @@ public abstract class Image {
     }
 
     /**
-     * Draw a point on the image.
-     *
-     * @param x the x value of the point.
-     * @param y the y value of the point.
-     * @param color the color to paint the point.
-     * @param thickness the thickness of the point in pixels.
-     */
-    public void drawPoint(int x, int y, Color color, int thickness) {
-        logger.debug("Drawing Point.");
-        cvDrawCircle(this.image, cvPoint(x, y), thickness,
-                this.toScalar(color), CV_FILLED, 8, 0);
-    }
-
-    /**
-     * Draw a line on the image.
-     *
-     * @param x1 the x value of the first point.
-     * @param y1 the y value of the first point.
-     * @param x2 the x value of the second point.
-     * @param y2 the y value of the second point.
-     * @param color the color to paint the line.
-     * @param thickness the thickness of the line in pixels.
-     */
-    public void drawLine(int x1, int y1, int x2, int y2, Color color, int thickness) {
-        logger.debug("Drawing Line.");
-        cvDrawLine(this.image, cvPoint(x1, y1), cvPoint(x2, y2), this.toScalar(color),
-                thickness, 8, 0);
-    }
-
-    /**
-     * Draw a circle on the image.
-     *
-     * @param x the x value of the center of the circle.
-     * @param y the y value of the center of the circle.
-     * @param radius the radius of the circle in pixels.
-     * @param color the color to paint the circle.
-     * @param thickness the thickness of the line in pixels.
-     */
-    public void drawCircle(int x, int y, int radius, Color color, int thickness) {
-        logger.debug("Drawing Circle.");
-        cvDrawCircle(this.image, cvPoint(x, y), radius, this.toScalar(color),
-                thickness, 8, 0);
-    }
-
-    /**
-     * Draw a rectangle on the image.
-     *
-     * @param x the x value of the top left of the rectangle.
-     * @param y the y value of the top left of the rectangle.
-     * @param width the width of the rectangle in pixels.
-     * @param height the height of the rectangle in pixels.
-     * @param color the color to paint the rectangle.
-     * @param thickness the thickness of the line in pixels.
-     */
-    public void drawRect(int x, int y, int width, int height, Color color, int thickness) {
-        logger.debug("Drawing Rectangle.");
-        cvDrawRect(this.image, cvPoint(x, y), cvPoint(x + width, y + height),
-                this.toScalar(color), thickness, 8, 0);
-    }
-
-    /**
      * Flip the image according to the specified flip mode.
      *
      * @param flipMode the flip mode that defines how to flip the image.<br>
@@ -144,17 +83,6 @@ public abstract class Image {
      */
     public void flip(int flipMode) {
         cvFlip(image, image, flipMode);
-    }
-
-    /**
-     * Convert a {@link Color} to a {@link CvScalar}.
-     *
-     * @param color the color object to convert.
-     * @return the converted cvScalar object.
-     */
-    private CvScalar toScalar(Color color) {
-        logger.debug("Converting color to cvScalar.");
-        return CV_RGB(color.getRed(), color.getGreen(), color.getBlue());
     }
 
     /**
