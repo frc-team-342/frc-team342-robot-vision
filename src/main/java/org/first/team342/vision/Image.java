@@ -76,9 +76,9 @@ public abstract class Image {
      * <br>
      * Valid flip modes:<br>
      * <ul>
-     *   <li>{@link Image#FLIP_MODE_X_AXIS}</li>
-     *   <li>{@link Image#FLIP_MODE_Y_AXIS}</li>
-     *   <li>{@link Image#FLIP_MODE_BOTH}</li>
+     * <li>{@link Image#FLIP_MODE_X_AXIS}</li>
+     * <li>{@link Image#FLIP_MODE_Y_AXIS}</li>
+     * <li>{@link Image#FLIP_MODE_BOTH}</li>
      * </ul>
      */
     public void flip(int flipMode) {
