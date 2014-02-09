@@ -1,7 +1,6 @@
 ## Robot Vision
 
 [![Build Status](https://travis-ci.org/frc-team-342/frc-team342-robot-vision.png?branch=master)](https://travis-ci.org/frc-team-342/frc-team342-robot-vision)
-
 [![Coverity Scan Build Status](https://scan.coverity.com/projects/1372/badge.svg)](https://scan.coverity.com/projects/1372)
 
 Robot Vision is a computer vision library based off of [WPIJavaCV](http://firstforge.wpi.edu/integration/viewcvs/viewcvs.cgi/trunk/WPIJavaCV/?root=smart_dashboard&system=exsy1002) and is meant for use with the [FIRST](http://www.usfirst.org) Robotics Competition.
