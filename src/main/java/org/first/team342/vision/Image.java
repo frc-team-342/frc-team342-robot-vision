@@ -107,4 +107,11 @@ public abstract class Image {
     public Image clone() {
         return ImageFactory.createImage(this.image.clone());
     }
+
+    /**
+     * Release allocated resources.
+     */
+    public void release() {
+        this.image.release();
+    }
 }
