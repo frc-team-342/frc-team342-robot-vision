@@ -7,7 +7,7 @@ env:
 addons:
   coverity_scan:
     project:
-      name: "frc-team-342/frc-team-342-robot-vision"
+      name: "frc-team-342-robot-vision"
       version: "0.0.1-SNAPSHOT"
       description: ""
 
