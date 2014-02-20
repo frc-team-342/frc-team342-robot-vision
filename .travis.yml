@@ -14,6 +14,6 @@ addons:
 
     notification_email: "adam.brightwell@gmail.com"
 
-    build_command: "mvn package"
+    build_command: "mvn clean compile"
 
     branch_pattern: "master"
