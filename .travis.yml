@@ -3,7 +3,7 @@ language: java
 env:
   global:
     - secure: "QyF4F2d+XsKE5qJdBY6IMwmFtYHcMK1PNpkEFL14jtqHerxS1hb+sTnLvbHT6BsKh7UsTThkMB80jDB26GkHLcgrfAgDlx7VUWeQ9ZDcYO1Svlv89dXQvOEFnQy2UTw+c6Eea1MUW3fI2L/KZ0A3oJBgN+rfJwKG5r1sGZcID4w="
-    - TRAVIS_REPO_SLUG: "frc-team-342/frc-team342-robot-vision"
+    - TRAVIS_REPO_SLUG: "frc-team342-robot-vision"
 
 addons:
   coverity_scan:
